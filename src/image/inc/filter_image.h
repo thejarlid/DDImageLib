@@ -51,6 +51,8 @@ Image make_1d_gaussian(float sigma);
 // returns: smoothed Image.
 Image smooth_image(const Image& im, float sigma);
 
+Image fast_smooth_image(const Image& im, float sigma);
+
 Image make_gx_filter(void);
 Image make_gy_filter(void);
 
@@ -60,7 +62,6 @@ Image sub_image(const Image& a, const Image& b);
 inline Image operator-(const Image& a, const Image& b) { return sub_image(a,b); }
 inline Image operator+(const Image& a, const Image& b) { return add_image(a,b); }
 
-void threshold_image(Image& im, float thresh);
 pair<Image,Image> sobel_image(const Image&  im);
 Image colorize_sobel(const Image&  im);
 Image smooth_image(const Image&  im, float sigma);

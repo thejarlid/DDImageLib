@@ -19,9 +19,15 @@ add_library(DDImgVidLib SHARED
   src/image/src/process_image.cpp
   src/image/src/resize_image.cpp
   src/image/src/filter_image.cpp
+
   src/feature_detection/harris_detector.cpp
+
   src/matrix/matrix.cpp
+  
   src/panorama/panorama.cpp
+
+  src/optical_flow/optical_flow.cpp
+
 
   src/colourspace/colourspaces.cpp
   src/colourspace/colourspaces.h

@@ -21,4 +21,4 @@ inline int within_eps(float a, float b) { return a-TEST_EPS<b && b<a+TEST_EPS; }
 
 float three_way_max(float a, float b, float c);
 float three_way_min(float a, float b, float c);
-
+float dot_product(const float* a, const float* b, int n);

@@ -280,7 +280,7 @@ public:
    * @param h the new height of the image
    * @return Image a new resized image
    */
-  Image nn_resize(int w, int h);
+  Image nn_resize(int w, int h) const;
 
 
   /**
@@ -290,7 +290,7 @@ public:
    * @param h the new height of the image
    * @return Image a new resized image
    */
-  Image bilinear_resize(int w, int h);
+  Image bilinear_resize(int w, int h) const;
 
 
   /**

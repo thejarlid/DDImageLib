@@ -35,7 +35,7 @@ float Image::bilinear_interpolate(float x, float y, int ch) const {
 }
 
 
-Image Image::nn_resize(int w, int h) {
+Image Image::nn_resize(int w, int h) const {
   float col_scale = (float)this->w/(float)w;
   float row_scale = (float)this->h/(float)h;
   Image resized(w, h, c);
@@ -50,7 +50,7 @@ Image Image::nn_resize(int w, int h) {
 }
 
 
-Image Image::bilinear_resize(int w, int h) {
+Image Image::bilinear_resize(int w, int h) const {
   float col_scale = (float)this->w/(float)w;
   float row_scale = (float)this->h/(float)h;
   Image resized(w, h, c);

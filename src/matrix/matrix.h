@@ -2,8 +2,7 @@
 
 #include <cassert>
 
-struct Matrix
-  {
+struct Matrix {
   int rows, cols;
   double* data;
   
@@ -117,8 +116,6 @@ inline Matrix operator*(double scale, const Matrix& a) {
 inline Matrix operator*(const Matrix& a, double scale) { return scale*a;}
 
 
-
-
 void print_matrix(const Matrix &m);
 Matrix LUP_solve(const Matrix& L, const Matrix& U, const Matrix& p, const Matrix& b);
 Matrix matrix_invert(const Matrix& m);
@@ -127,3 +124,35 @@ Matrix random_matrix(int rows, int cols);
 Matrix sle_solve(const Matrix& A, const Matrix& b);
 Matrix solve_system(const Matrix& M, const Matrix& b);
 void test_matrix(void);
+
+
+struct Matrix2x2 {
+  double a,b,c,d;
+  Matrix2x2() : a(0),b(0),c(0),d(0) {}
+  Matrix2x2(double a,double b,double c,double d) : a(a),b(b),c(c),d(d) {}
+  
+  Matrix2x2 inverse(void) const {
+    double det=a*d-b*c;
+    return Matrix2x2(d/det,-b/det,-c/det,a/det);
+  }
+};
+
+struct Vector2 {
+  double a,b;
+  Vector2() : a(0),b(0) {}
+  Vector2(double a,double b) : a(a),b(b) {}
+};
+
+
+inline Matrix2x2 operator*(double s, Matrix2x2 m) { return Matrix2x2(m.a*s,m.b*s,m.c*s,m.d*s); }
+inline Matrix2x2 operator*(Matrix2x2 m, double s) { return Matrix2x2(m.a*s,m.b*s,m.c*s,m.d*s); }
+inline Matrix2x2 operator/(double s, Matrix2x2 m) { return Matrix2x2(m.a/s,m.b/s,m.c/s,m.d/s); }
+inline Matrix2x2 operator/(Matrix2x2 m, double s) { return Matrix2x2(m.a/s,m.b/s,m.c/s,m.d/s); }
+
+
+inline Vector2 operator*(double s, Vector2 m) { return Vector2(m.a*s,m.b*s); }
+inline Vector2 operator*(Vector2 m, double s) { return Vector2(m.a*s,m.b*s); }
+inline Vector2 operator/(double s, Vector2 m) { return Vector2(m.a/s,m.b/s); }
+inline Vector2 operator/(Vector2 m, double s) { return Vector2(m.a/s,m.b/s); }
+
+inline Vector2 operator*(Matrix2x2 m, Vector2 v) { return Vector2(m.a*v.a + m.b*v.b , m.c*v.a + m.d*v.b); }
