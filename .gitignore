@@ -12,4 +12,4 @@ _deps
 Build/*
 output/*
 .DS_Store
-*.o
+*Tests
