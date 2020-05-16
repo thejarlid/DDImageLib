@@ -34,8 +34,6 @@ struct Color {
       default: throw std::runtime_error("Found extra colour in rainbow.");
     }
   }
-
-
 };
 
 

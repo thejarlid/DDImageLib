@@ -139,7 +139,6 @@ vector<int> match_descriptors_a2b(const vector<Descriptor>& a, const vector<Desc
 }
 
 
-
 // Finds best matches between descriptors of two images.
 // const vector<Descriptor>& a, b: array of descriptors for pixels in two images.
 // returns: best matches found. each descriptor in a should match with at most

@@ -38,7 +38,7 @@ link_libraries(DDImgVidLib m stdc++)
 add_executable(ProcessTests test/test_process_image.cpp)
 add_executable(ResizeTests test/test_resize_image.cpp)
 add_executable(FilterTests test/test_filter_image.cpp)
-add_executable(HarrisTest test/test_harris.cpp)
+add_executable(HarrisTests test/test_harris.cpp)
 
 
 find_package(OpenCV QUIET)
