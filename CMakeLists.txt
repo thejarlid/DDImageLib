@@ -19,15 +19,11 @@ add_library(DDImgVidLib SHARED
   src/image/src/process_image.cpp
   src/image/src/resize_image.cpp
   src/image/src/filter_image.cpp
-
   src/feature_detection/harris_detector.cpp
-
   src/matrix/matrix.cpp
-  
   src/panorama/panorama.cpp
-
   src/optical_flow/optical_flow.cpp
-
+  src/video/video.cpp
 
   src/colourspace/colourspaces.cpp
   src/colourspace/colourspaces.h
@@ -39,15 +35,16 @@ add_executable(ProcessTests test/test_process_image.cpp)
 add_executable(ResizeTests test/test_resize_image.cpp)
 add_executable(FilterTests test/test_filter_image.cpp)
 add_executable(HarrisTests test/test_harris.cpp)
+add_executable(
+  VideoStabilizer 
+  src/video/video_stabilizer.cpp
+)
 
-
+# OpenCV
 find_package(OpenCV QUIET)
-
 message(${OpenCV_LIBRARIES})
 message(${OpenCV_INCLUDE_DIRS})
 message(${OpenCV_FOUND})
-
-
 if(${OpenCV_FOUND})
   add_definitions(-DOPENCV)
   link_libraries(${OpenCV_LIBRARIES})
